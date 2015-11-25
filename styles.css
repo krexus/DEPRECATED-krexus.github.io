@@ -19,8 +19,10 @@ html, body {
   margin: 0;
   padding: 0;   
 }
-.mdl-layout__content {
-    flex-shrink: 0;
+@media screen and (max-width: 850px) {
+    .mdl-layout__container {
+         position: static;
+    }
 }
 .mdl-color--primary {
   background-color: #C62828 !important
@@ -34,25 +36,25 @@ html, body {
 .mdl-color--accent-contrast {
   background-color: white !important
 }
-.mdl-color-text--accent-contrast {
-  background-color: #ff00ff !important
-}
 .mdl-demo .mdl-layout__header-row {
   padding-left: 40px;
+  padding-right: 40px;
 }
 .mdl-demo .mdl-layout__tab-bar-button {
   display: none;    
 }
 .mdl-demo .mdl-layout__tab-bar-container {
   height: 64px;
-  position: fixed;
-  padding-bottom: 30px;
-  width: calc(100% - 15px);    
+  overflow: visible;
+}
+.mdl-demo !.is-small-screen .mdl-layout__tab-bar-container {
+	position: fixed;
+	width: calc(100% - 15px);
 }
 .mdl-demo .mdl-layout__tab-bar {  
   padding: 0;
   padding-left: 16px;
-  box-sizing: content-box;
+  box-sizing: border-box;
   height: 100%;
   width: 100%;
 }
@@ -66,7 +68,7 @@ html, body {
 }
 .mdl-demo main > .mdl-layout__tab-panel {
   padding: 8px;
-  padding-top: 96px;
+  padding-top: 48px;
 }
 .mdl-demo .mdl-card {
   height: auto;
