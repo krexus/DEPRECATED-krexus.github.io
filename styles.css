@@ -19,7 +19,7 @@ html, body {
   margin: 0;
   padding: 0;   
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1080px) {
     .mdl-layout__container {
          position: static;
     }
@@ -48,7 +48,7 @@ html, body {
 }
 .mdl-demo .mdl-layout__tab-bar-container {
   height: 64px;
-  overflow: visible;
+  overflow: visible;  
 }
 .mdl-demo .mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar-container {
 	position: fixed;
@@ -113,16 +113,16 @@ html, body {
 }
 .mdl-demo #download {
   position: absolute;
-  right: 60px;
+  right: 40px;
   top: 36px;
   z-index: 999;
 }
 .mdl-demo #download1 {
   display:none;
-  position: fixed;   
+  position: fixed;
   right: 0;
   bottom: 0;  
-  margin-right: 60px;
+  margin-right: 40px;
   margin-bottom: 40px;
   z-index: 999;
 }
@@ -172,18 +172,13 @@ html, body {
 }
 .mdl-demo section .section__text a {
   text-decoration: none;
+  color: #212121;
 }
 .mdl-demo section .section__circle-container > .section__circle-container__circle {
   width: 64px;
   height: 64px;
   border-radius: 32px;
   margin: 8px 0;
-}
-.mdl-demo section.section--footer .section__circle--big {
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  margin: 8px 32px;
 }
 .mdl-demo .is-small-screen section.section--footer .section__circle--big {
   width: 50px;
