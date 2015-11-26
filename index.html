@@ -48,47 +48,43 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.red-teal.min.css" />      
+    <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.red-pink.min.css" />      
     <script async type="text/javascript" src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
 <script type="text/javascript">
-jQuery(document).ready(function(){
-    jQuery('.mdl-layout').scroll(function(){
+$(document).ready(function(){
+    $('.mdl-layout').scroll(function(){
          $(".mdl-layout__tab-bar-container").css("top", Math.max(0, 180 - $(this).scrollTop()));
     });
+});    
+$(window).scroll(function() {
+    if ($(this).scrollTop() < 270) {
+        $("#download1").fadeOut({queue: false});
+    }
+    else {
+        $("#download1").fadeIn({queue: false});
+    }
 });
 </script>
-    <style>
-    #download {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 60px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-    </style>
-  </head>
-  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+</head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-600 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--overlay-drawer-button">
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-        <div class=" mdl-layout--fixed-header mdl-layout__header-row">
+        <div class="mdl-layout__header-row">
         </div>
-        <div class="mdl-layout--fixed-header mdl-layout__header-row">
-          <img id="logoimage" src="images/logo.svg" alt="Krexus" width=350 />
+        <div class="mdl-layout__header-row logoimage">
+          <img id="logoimage" src="images/logo.svg" alt="Krexus" />
         </div>
-        <div class="mdl-layout--fixed-header mdl-layout__header-row">
+        <div class="mdl-layout__header-row">
         </div>  
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark" id="tabbar">
           <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
           <a href="#features" class="mdl-layout__tab">Features</a>
-          <a href="#features" class="mdl-layout__tab">Details</a>
           <a href="#features" class="mdl-layout__tab">Developer</a>
           <a href="#features" class="mdl-layout__tab">Changelog</a> 
           <a href="#features" class="mdl-layout__tab">FAQ</a>
-          <a href="https://basketbuild.com/devs/KreAch3R/Krexus" target="_blank" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
+          <a href="https://basketbuild.com/devs/KreAch3R/Krexus" target="_blank" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="download">
             <i class="material-icons" role="presentation">&#xE2C4;</i>
             <span class="visuallyhidden">Download</span>
           </a>   
@@ -218,6 +214,16 @@ jQuery(document).ready(function(){
           <div class="mdl-mega-footer--middle-section">
             <div class="mdl-mega-footer--drop-down-section">
               <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer--heading">Overview</h1>
+              <ul class="mdl-mega-footer--link-list">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Updates</a></li>
+              </ul>
+            </div>              
+            <div class="mdl-mega-footer--drop-down-section">
+              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
               <h1 class="mdl-mega-footer--heading">Features</h1>
               <ul class="mdl-mega-footer--link-list">
                 <li><a href="#">About</a></li>
@@ -228,22 +234,11 @@ jQuery(document).ready(function(){
             </div>
             <div class="mdl-mega-footer--drop-down-section">
               <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-              <h1 class="mdl-mega-footer--heading">Details</h1>
+              <h1 class="mdl-mega-footer--heading">Developer</h1>
               <ul class="mdl-mega-footer--link-list">
                 <li><a href="#">Spec</a></li>
                 <li><a href="#">Tools</a></li>
                 <li><a href="#">Resources</a></li>
-              </ul>
-            </div>
-            <div class="mdl-mega-footer--drop-down-section">
-              <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-              <h1 class="mdl-mega-footer--heading">Technology</h1>
-              <ul class="mdl-mega-footer--link-list">
-                <li><a href="#">How it works</a></li>
-                <li><a href="#">Patterns</a></li>
-                <li><a href="#">Usage</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Contracts</a></li>
               </ul>
             </div>
             <div class="mdl-mega-footer--drop-down-section">
@@ -256,18 +251,21 @@ jQuery(document).ready(function(){
               </ul>
             </div>
           </div>
-          <div class="mdl-mega-footer--bottom-section">
-            <div class="mdl-logo">
-              More Information
+          <div class="mdl-mega-footer--bottom-section">     
+                <div class="mdl-logo">
+                  Website design:
+                </div>
+                  <ul class="mdl-mega-footer--link-list">   
+                    <li><a href="https://developers.google.com/web/starter-kit/">KreAch3R 2015™</a></li>
+                 </ul>
             </div>
-            <ul class="mdl-mega-footer--link-list">
-              <li><a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a></li>
-              <li><a href="#">Help</a></li>
-              <li><a href="#">Privacy and Terms</a></li>
-            </ul>
-          </div>
+          </div>              
         </footer>
       </main>
-    </div>      
+    </div>   
+  <a href="https://github.com/google/material-design-lite/blob/master/templates/text-only/" target="_blank" id="download1" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-cell--hide-desktop">
+      <i class="material-icons" role="presentation">&#xE2C4;</i>
+            <span class="visuallyhidden">Download</span>
+  </a>  
   </body>
 </html>
