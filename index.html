@@ -57,6 +57,13 @@ $(document).ready(function(){
     $('.mdl-layout').scroll(function(){
          $(".mdl-layout__tab-bar-container").css("top", Math.max(0, $("#header").height() - $(this).scrollTop()));
     });
+     $.ajax({
+            url : "https://dl.dropboxusercontent.com/u/12469927/krexus_Changelog.txt",
+            dataType: "text",
+            success : function (result) {
+                $("#changelogtext").html(result);
+            }
+        });
 });    
 $(window).scroll(function() {
     if ($(this).scrollTop() < 270) {
@@ -65,7 +72,7 @@ $(window).scroll(function() {
     else {
         $("#download1").fadeIn({queue: false});
     }
-});   
+});  
 </script>
 </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-600 mdl-base">
@@ -82,7 +89,7 @@ $(window).scroll(function() {
           <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
           <a href="#features" class="mdl-layout__tab">Features</a>
           <a href="#features" class="mdl-layout__tab">Developer</a>
-          <a href="#features" class="mdl-layout__tab">Changelog</a> 
+          <a href="#changelog" class="mdl-layout__tab">Changelog</a> 
           <a href="#features" class="mdl-layout__tab">FAQ</a>
           <a href="https://basketbuild.com/devs/KreAch3R/Krexus" target="_blank" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="download">
             <i class="material-icons" role="presentation">&#xE2C4;</i>
@@ -209,7 +216,16 @@ $(window).scroll(function() {
               </p>
             </div>
           </section>
-        </div>   
+        </div>
+        <div class="mdl-layout__tab-panel" id="changelog">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+
+              <pre><p id="changelogtext"></p></pre>
+                
+            </div>
+          </section>
+        </div>             
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--middle-section">
             <div class="mdl-mega-footer--drop-down-section">
