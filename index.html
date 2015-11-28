@@ -51,20 +51,20 @@
     <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.red-pink.min.css" />      
     <script async type="text/javascript" src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+<script async type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('.mdl-layout').scroll(function(){
          $(".mdl-layout__tab-bar-container").css("top", Math.max(0, $("#header").height() - $(this).scrollTop()));
     });
-     $.ajax({
-            url : "https://dl.dropboxusercontent.com/u/12469927/krexus_Changelog.txt",
-            dataType: "text",
-            success : function (result) {
-                $("#changelogtext").html(result);
-            }
-        });
 });    
+$.ajax({
+    url : "https://dl.dropboxusercontent.com/u/12469927/krexus_Changelog.txt",
+    dataType: "text",
+    success : function (result) {
+       $("#changelogtext").html(result);
+    }
+});
 $(window).scroll(function() {
     if ($(this).scrollTop() < 270) {
         $("#download1").fadeOut({queue: false});
@@ -72,7 +72,7 @@ $(window).scroll(function() {
     else {
         $("#download1").fadeIn({queue: false});
     }
-});  
+});
 </script>
 </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-600 mdl-base">
