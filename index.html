@@ -57,6 +57,7 @@ $(document).ready(function(){
     $('.mdl-layout').scroll(function(){
          $(".mdl-layout__tab-bar-container").css("top", Math.max(0, $("#header").height() - $(this).scrollTop()));
     });
+    loadHash();
 });    
 $.ajax({
     url : "https://dl.dropboxusercontent.com/u/12469927/krexus_Changelog.txt",
@@ -73,6 +74,19 @@ $(window).scroll(function() {
         $("#download1").fadeIn({queue: false});
     }
 });
+function loadHash() {
+    hash=location.hash
+    console.log("loaded " + hash)
+            
+     // remove all is-active classes from tabs
+     $('a.mdl-layout__tab').removeClass('is-active');
+     // activate desired tab
+     $('a[href='+ hash +']').addClass('is-active');
+     // remove all is-active classes from panels
+     $('.mdl-layout__tab-panel').removeClass('is-active');
+     // activate desired tab panel
+     $(hash).addClass('is-active');
+}
 </script>
 </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-600 mdl-base">
@@ -223,7 +237,7 @@ $(window).scroll(function() {
 
               <pre><p id="changelogtext"></p></pre>
                 
-            </div>
+            </div>  
           </section>
         </div>             
         <footer class="mdl-mega-footer">
