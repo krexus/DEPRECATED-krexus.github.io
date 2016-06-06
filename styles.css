@@ -25,6 +25,11 @@ html, body {
 .mdl-demo .mdl-layout.is-small-screen .mdl-layout__header-row h3 {
   font-size: inherit;
 }
+.mdl-demo #logoimage {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+}
 .mdl-demo .mdl-layout__tab-bar-button {
   display: none;
 }
@@ -99,11 +104,12 @@ html, body {
 .mdl-demo .mdl-card__supporting-text + .mdl-card__actions {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
-.mdl-demo #add {
+.mdl-demo #download {
   position: absolute;
   right: 40px;
   top: 36px;
   z-index: 999;
+  background-color: black
 }
 
 .mdl-demo .mdl-layout__content section:not(:last-of-type) {
