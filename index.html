@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   </head>
-  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <body class="krexus mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary-dark">
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
@@ -73,11 +73,20 @@
           </a>
         </div>
       </header>
+      <dialog id="review-dialog" class="mdl-dialog">
+        <h3 class="mdl-dialog__title">KREXUS Video Review</h3>
+        <div class="mdl-dialog__content">
+          <p id="dialogBody"></p>
+        </div>
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button">Close</button>
+        </div>
+      </dialog>
       <main class="mdl-layout__content">
         <div class="mdl-layout__tab-panel is-active" id="overview">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
-              <i class="material-icons">play_circle_filled</i>
+            <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-bg-yt mdl-color-text--white review-dialog-button">
+              <i class="material-icons" style="color: #D32F2F;">play_circle_filled</i>
             </header>
             <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
               <div class="mdl-card__supporting-text">
@@ -266,6 +275,23 @@
              $("#changelogtext").html(result);
           }
       });
+        (function() {
+          'use strict';
+          var dialogButton = document.querySelector('.review-dialog-button');
+          var dialog = document.querySelector('#review-dialog');
+          if (! dialog.showModal) {
+            dialogPolyfill.registerDialog(dialog);
+          }
+          dialogButton.addEventListener('click', function() {
+             dialog.showModal();
+             document.getElementById("dialogBody").innerHTML = "<iframe id='ytplayer' type='text/html' height='450' src='https://www.youtube.com/embed/xsab701mAnc' frameborder='0'/>";
+          });
+          dialog.querySelector('button:not([disabled])')
+          .addEventListener('click', function() {
+            dialog.close();
+            document.getElementById("dialogBody").innerHTML = "";
+          });
+        }());
     </script>
     <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   </body>
