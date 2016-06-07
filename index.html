@@ -64,9 +64,9 @@
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
           <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
           <a href="#features" class="mdl-layout__tab">Features</a>
-          <a href="#features" class="mdl-layout__tab">Developer</a>
-          <a href="#features" class="mdl-layout__tab">Changelog</a>
-          <a href="#features" class="mdl-layout__tab">FAQ</a>
+          <a href="#developer" class="mdl-layout__tab">Developer</a>
+          <a href="#changelog" class="mdl-layout__tab">Changelog</a>
+          <a href="#faq" class="mdl-layout__tab">FAQ</a>
           <a href="https://basketbuild.com/devs/KreAch3R/Krexus" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp" id="download">
             <i class="material-icons" role="presentation">&#xE2C4;</i>
             <span class="visuallyhidden">Download</span>
@@ -114,6 +114,7 @@
               </div>
             </div>
           </section>
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp"></section>
         </div>
         <div class="mdl-layout__tab-panel" id="features">
           <section class="section--center mdl-grid mdl-grid--no-spacing">
@@ -193,7 +194,15 @@
                 Eiusmod nulla aliquip ipsum reprehenderit nostrud non excepteur mollit amet esse est est dolor. Dolore quis pariatur sit consectetur veniam esse ullamco duis Lorem qui enim ut veniam. Officia deserunt minim duis laborum dolor in velit pariatur commodo ullamco eu. Aute adipisicing ad duis labore laboris do mollit dolor cillum sunt aliqua ullamco. Esse tempor quis cillum consequat reprehenderit. Adipisicing proident anim eu sint elit aliqua anim dolore cupidatat fugiat aliquip qui.
             </div>
           </section>
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp"></section>
         </div>
+        <div class="mdl-layout__tab-panel" id="changelog">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+              <pre><p id="changelogtext"></p></pre>
+            </div>  
+          </section>
+        </div>   
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--middle-section">
             <div class="mdl-mega-footer--drop-down-section">
@@ -249,6 +258,15 @@
         </footer>
       </main>
     </div>
+    <script type="text/javascript">
+      $.ajax({
+          url : "https://dl.dropboxusercontent.com/u/12469927/krexus_Changelog.txt",
+          dataType: "text",
+          success : function (result) {
+             $("#changelogtext").html(result);
+          }
+      });
+    </script>
     <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   </body>
 </html>
