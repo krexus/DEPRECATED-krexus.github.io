@@ -291,7 +291,18 @@
             dialog.close();
             document.getElementById("dialogBody").innerHTML = "";
           });
-        }());
+        }());    
+    </script>
+    <script>
+      var num = 190; //number of pixels before tab bar is fixed
+      $('.mdl-layout').bind('scroll', function () {
+          if ($('.mdl-layout').scrollTop() > num) {
+              $('.mdl-layout__tab-bar-container').addClass('fixed');
+              console.log('hua?');
+          } else {
+              $('.mdl-layout__tab-bar-container').removeClass('fixed');
+          }
+      });
     </script>
     <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   </body>

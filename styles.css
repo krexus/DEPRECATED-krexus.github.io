@@ -294,3 +294,7 @@ html, body {
   background-size: cover;
   cursor: pointer;
 }
+.fixed {
+    position:fixed;
+    top:0;
+}
