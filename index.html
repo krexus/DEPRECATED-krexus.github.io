@@ -53,7 +53,7 @@
   </head>
   <body class="krexus mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary-dark header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary-dark">
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
@@ -294,7 +294,7 @@
         }());    
     </script>
     <script>
-      var num = document.getElementById('header').clientHeight; //number of pixels before tab bar is fixed
+      var num = $("header").height() - 64;
       $('.mdl-layout').bind('scroll', function () {
           if ($('.mdl-layout').scrollTop() > num) {
               $('.mdl-layout__tab-bar-container').addClass('fixed');
