@@ -14,6 +14,16 @@
  * limitations under the License.
  */
 
+::-webkit-scrollbar{
+  width:6px!important
+}*
+::-webkit-scrollbar-thumb{
+  background-color:rgba(0,0,0,0.8)
+}*
+::-webkit-scrollbar-track{
+  background:rgba(238,238,238,0.8)
+}
+
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
   margin: 0;
@@ -295,6 +305,10 @@ html, body {
   cursor: pointer;
 }
 .fixed {
-    position:fixed;
-    top:0;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  position:fixed;
+  top:0;
 }
