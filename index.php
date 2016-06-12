@@ -212,7 +212,33 @@
               <pre><p id="changelogtext"></p></pre>
             </div>  
           </section>
-        </div>   
+        </div>
+        <div class="mdl-layout__tab-panel" id="faq">
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--12-col">
+              <p id="faqtext">
+                <?php 
+                  file_put_contents("krexusFAQdoc.zip", fopen("https://docs.google.com/document/d/1hMX-lQ2iUiNsrhszMIlp0Wwj1tSHWvsaEQ_yT4pD_eE/export?format=zip", 'r'));
+                  $file = 'krexusFAQdoc.zip';
+                  // get the absolute path to $file
+                  $path = pathinfo(realpath($file), PATHINFO_DIRNAME);
+
+                  $zip = new ZipArchive;
+                  $res = $zip->open($file);
+                  if ($res === TRUE) {
+                    // extract it to the path we determined above
+                    $zip->extractTo($path);
+                    $zip->close();
+                  } else {
+                    echo "There seems to be an error at the moment. Please try again later.";
+                  }
+                  include("KrexusF.A.Q..html");
+                ?>
+              </p>
+            </div>  
+          </section>
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp"></section>
+        </div>
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--middle-section">
             <div class="mdl-mega-footer--drop-down-section">
@@ -289,8 +315,8 @@
           });
           dialog.querySelector('button:not([disabled])')
           .addEventListener('click', function() {
-            dialog.close();
             document.getElementById("dialogBody").innerHTML = "";
+            dialog.close();
           });
         }());    
     </script>
